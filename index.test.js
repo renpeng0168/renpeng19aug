@@ -1,5 +1,4 @@
 const { handler } = require('./index');
-
 describe('Lambda Handler', () => {
   it('returns a successful response', async () => {
     const event = { key: 'value' };
@@ -7,7 +6,7 @@ describe('Lambda Handler', () => {
       statusCode: 200,
       body: JSON.stringify(
         {
-          message: "Your function executed successfully!",
+          message: "Your function executed successfully!"
         },
         null,
         2

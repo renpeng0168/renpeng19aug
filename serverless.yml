@@ -1,4 +1,4 @@
-service: renpeng19aug
+service: <CHANGE_TO_YOUR_PROJECT_NAME>
 frameworkVersion: '3'
 
 provider:
@@ -15,7 +15,12 @@ functions:
       - httpApi:
           path: /
           method: get
-     
+    environment:
+      ACCESS_KEY: ${ssm:ACCESS_KEY}
+
+
 
 plugins:
   - serverless-offline
+
+
