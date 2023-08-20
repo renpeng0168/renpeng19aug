@@ -1,4 +1,4 @@
-service: <CHANGE_TO_YOUR_PROJECT_NAME>
+service: renpeng19aug
 frameworkVersion: '3'
 
 provider:
@@ -16,7 +16,7 @@ functions:
           path: /
           method: get
     environment:
-      ACCESS_KEY: ${ssm:ACCESS_KEY}
+      ACCESS_KEY: ${ssm:RENPENG_ACCESS_KEY}
 
 
 
