@@ -19,3 +19,29 @@ documentation:
 # Deploy the application to a serverless platform: AWS Lambda
 
 # Configure the pipeline to automatically deploy the code to the serverless platform whenever changes are pushed to the code repository and all tests pass. set up the githup secrect to include necessary aws credential. and make sure the workflow perssion is enabled for action.
+
+# Store a secret in AWS Secrets Manager
+aws secretsmanager create-secret --name my-secret --secret-string '{"username":"my-username","password":"my-password"}'
+## update the main.yml code as below: 
+retrieve-secret:
+    runs-on: ubuntu-latest
+    needs: package-scan
+    steps:
+      - name: Retrieve secret from AWS Secrets Manager
+        run: |
+          SECRET=$(aws secretsmanager get-secret-value --secret-id my-secret | jq -r '.SecretString')
+          echo "SECRET=$SECRET" >> $GITHUB_ENV
+
+
+
+# Add Package Vulnerability Scan on your CICD, below code add in main.yml 
+##   package-scan:
+    runs-on: ubuntu-latest
+    needs: unit-testing
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v3
+    - name: Run installation of dependencies commands
+      run: npm install
+    - name: Run package scan
+      run: npm audit
