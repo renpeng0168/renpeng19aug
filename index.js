@@ -1,15 +1,5 @@
-const winston = require('winston');
-
-const logger = winston.createLogger({
-  transports: [
-    new winston.transports.Console()
-  ]
-});
-
 module.exports.handler = async (event) => {
-  logger.info('Function invoked', { event });
-  
-  const response = {
+  return {
     statusCode: 200,
     body: JSON.stringify(
       {
@@ -20,8 +10,4 @@ module.exports.handler = async (event) => {
       2
     ),
   };
-  
-  logger.info('Function response', { response });
-  
-  return response;
 };
