@@ -1,0 +1,5 @@
+N2390082:renpeng19aug pren$ aws logs filter-log-events --log-group-name /aws/lambda/renpeng19aug-dev-api
+{
+    "events": [],
+    "searchedLogStreams": []
+}
