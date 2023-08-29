@@ -1,20 +1,7 @@
-const express = require('express');
-const app = express();
-const port = 3000;
-
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-
-
 module.exports.handler = async (event) => {
-  return {
+  console.log("Function started executing");
+  console.log("Event: ", event);
+  const response = {
     statusCode: 200,
     body: JSON.stringify(
       {
@@ -25,4 +12,7 @@ module.exports.handler = async (event) => {
       2
     ),
   };
+  console.log("Response: ", response);
+  console.log("Function finished executing");
+  return response;
 };
