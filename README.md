@@ -45,3 +45,5 @@ retrieve-secret:
       run: npm install
     - name: Run package scan
       run: npm audit
+
+# Update Index.js code to add some logging, added several console.log() statements to log the start and end of the function execution, as well as the event and response objects. This can help to debug the code and understand what is happening when function is invoked. Identify the log group that contains the logs for the application. then run : aws logs filter-log-events --log-group-name /aws/lambda/renpeng19aug-dev-api
